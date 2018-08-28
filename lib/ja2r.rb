@@ -32,8 +32,8 @@ module JA2R
 
     def convert_relationship(hash)
       Hash[hash.map do |key, data|
-        if data.is_a? Array
-          [key, data.map { |d| Element.new(d) }]
+        if data['data'].is_a? Array
+          [key, data['data'].map { |d| Element.new(d) }]
         else
           [key, Element.new(data['data'])]
         end

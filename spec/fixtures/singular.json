@@ -8,14 +8,14 @@
       "relationships":{
          "sister":{
             "data":{
-               "id":"1002",
-               "type":"persons"
+              "id":"1002",
+              "type":"persons"
             }
          },
          "father":{
             "data":{
-               "id":"998",
-               "type":"persons"
+              "id":"998",
+              "type":"persons"
             }
          }
       }

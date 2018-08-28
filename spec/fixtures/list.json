@@ -7,16 +7,18 @@
         "name":"Homer"
       },
       "relationships":{
-         "pets":[
-           {
-             "id":"1003",
-             "type":"pets"
-           },
-           {
-             "id":"1004",
-             "type":"pets"
-           }
-         ]
+        "pets":{
+          "data":[
+            {
+              "id":"1003",
+              "type":"pets"
+            },
+            {
+              "id":"1004",
+              "type":"pets"
+            }
+          ]
+        }
       }
     },
     {
