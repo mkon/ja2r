@@ -21,12 +21,14 @@ module JA2R
     def method_missing(method, *args)
       return attributes[method] if attributes&.key? method
       return relationships[method] if relationships&.key? method
+
       super
     end
 
     def respond_to_missing?(symbol, include_all = false)
       return true if attributes&.key?(symbol.to_s)
       return true if relationships&.key?(symbol.to_s)
+
       super
     end
 

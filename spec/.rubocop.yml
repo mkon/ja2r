@@ -1,0 +1,18 @@
+require: rubocop-rspec
+inherit_from: ../.rubocop.yml
+
+Metrics/BlockLength:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/FilePath:
+  Exclude:
+    - ja2r_spec.rb
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false

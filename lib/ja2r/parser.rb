@@ -54,6 +54,7 @@ module JA2R
           end
         else
           next unless (obj = object_space.dig(relationship.type, relationship.id))
+
           element.relationships[key] = obj
         end
       end
