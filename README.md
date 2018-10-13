@@ -1,5 +1,8 @@
 # JA2R
 
+[![Gem Version](https://badge.fury.io/rb/ja2r.svg)](https://badge.fury.io/rb/ja2r)
+[![Build Status](https://travis-ci.org/mkon/ja2r.svg?branch=master)](https://travis-ci.org/mkon/ja2r)
+
 JASON-API to Ruby Object
 
 Converts a JSON-API payload into a ruby object which supports navigation over relationships.
