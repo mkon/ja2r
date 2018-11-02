@@ -12,6 +12,11 @@ RSpec.describe JA2R do
     expect(ele.father.car.name).to eq 'PinkSedan'
   end
 
+  it 'can read meta' do
+    ele = described_class.parse payload
+    expect(ele.meta('example')).to be true
+  end
+
   it 'can handle lists' do
     list = described_class.parse json_list
     expect(list.size).to eq 3

@@ -11,10 +11,19 @@ module JA2R
       @id = payload['id']
       @type = payload['type']
       @attributes = (payload['attributes'] || {}).with_indifferent_access
+      @meta = (payload['meta'] || {}).with_indifferent_access
       @relationships = payload['relationships'] ? convert_relationship(payload['relationships']) : {}
     end
 
     attr_reader :id, :type, :attributes, :relationships
+
+    def attribute(key)
+      @attributes[key]
+    end
+
+    def meta(key)
+      @meta[key]
+    end
 
     private
 

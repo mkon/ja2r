@@ -5,6 +5,9 @@
       "attributes":{
          "name":"Bart"
       },
+      "meta": {
+        "example": true
+      },
       "relationships":{
          "sister":{
             "data":{
