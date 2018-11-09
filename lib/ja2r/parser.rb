@@ -23,20 +23,20 @@ module JA2R
     end
 
     def parse_single
-      root = Element.new hash['data']
+      root = KlassRegistry.instantiate(hash['data'])
       object_space << root
       root
     end
 
     def parse_list
-      root = hash['data'].map { |data| Element.new data }
+      root = hash['data'].map { |data| KlassRegistry.instantiate(data) }
       object_space.push(*root)
       root
     end
 
     def parse_included
       hash['included']&.map do |data|
-        object_space.push Element.new(data)
+        object_space.push KlassRegistry.instantiate(data)
       end
     end
 

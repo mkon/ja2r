@@ -23,4 +23,18 @@ RSpec.describe JA2R do
     expect(list.first.name).to eq 'Homer'
     expect(list.first.pets.size).to eq 2
   end
+
+  describe 'using custom class registry' do
+    around do |example|
+      JA2R::KlassRegistry.register 'persons', person_klass
+      example.run
+    end
+
+    let(:person_klass) { Class.new(JA2R::Element) }
+
+    it 'uses the right classes' do
+      ele = described_class.parse payload
+      expect(ele).to be_a(person_klass)
+    end
+  end
 end
