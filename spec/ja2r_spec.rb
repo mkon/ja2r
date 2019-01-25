@@ -12,6 +12,11 @@ RSpec.describe JA2R do
     expect(ele.father.car.name).to eq 'PinkSedan'
   end
 
+  it 'can read links' do
+    ele = described_class.parse payload
+    expect(ele.link('self')).to eq 'http://bart'
+  end
+
   it 'can read meta' do
     ele = described_class.parse payload
     expect(ele.meta('example')).to be true

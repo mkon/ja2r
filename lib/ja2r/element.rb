@@ -5,6 +5,7 @@ module JA2R
       @type = payload['type']
       @attributes = (payload['attributes'] || {}).with_indifferent_access
       @meta = (payload['meta'] || {}).with_indifferent_access
+      @links = (payload['links'] || {}).with_indifferent_access
       @relationships = payload['relationships'] ? convert_relationship(payload['relationships']) : {}
     end
 
@@ -12,6 +13,10 @@ module JA2R
 
     def attribute(key)
       @attributes[key]
+    end
+
+    def link(key)
+      @links[key]
     end
 
     def meta(key)

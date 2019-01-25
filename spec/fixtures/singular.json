@@ -5,6 +5,9 @@
       "attributes":{
          "name":"Bart"
       },
+      "links": {
+        "self": "http://bart"
+      },
       "meta": {
         "example": true
       },
