@@ -19,7 +19,11 @@ module JA2R
     attr_reader :hash, :object_space
 
     def parse_data
-      hash['data'].is_a?(Array) ? parse_list : parse_single
+      if hash['data'].is_a?(Array)
+        parse_list
+      elsif hash['data'].is_a?(Hash)
+        parse_single
+      end
     end
 
     def parse_single

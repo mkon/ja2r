@@ -7,8 +7,7 @@ Metrics/BlockLength:
 RSpec/ExampleLength:
   Enabled: false
 RSpec/FilePath:
-  Exclude:
-    - ja2r_spec.rb
+  Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
 RSpec/NamedSubject:
