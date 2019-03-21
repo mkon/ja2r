@@ -19,9 +19,9 @@ module JA2R
     attr_reader :hash, :object_space
 
     def parse_data
-      if hash['data'].is_a?(Array)
+      if hash&.[]('data').is_a?(Array)
         parse_list
-      elsif hash['data'].is_a?(Hash)
+      elsif hash&.[]('data').is_a?(Hash)
         parse_single
       end
     end
@@ -57,7 +57,7 @@ module JA2R
             object_space.dig(e.type, e.id) || e
           end
         else
-          next unless (obj = object_space.dig(relationship.type, relationship.id))
+          next unless (obj = object_space.dig(relationship&.type, relationship&.id))
 
           element.relationships[key] = obj
         end

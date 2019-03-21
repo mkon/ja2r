@@ -2,7 +2,7 @@ module JA2R
   class Element
     def initialize(origin_data)
       @origin_data = origin_data.with_indifferent_access
-      @relationships = origin_data['relationships'] ? convert_relationship(origin_data['relationships']) : {}
+      @relationships = origin_data['relationships'] ? convert_relationships(origin_data['relationships']) : {}
     end
 
     attr_reader :origin_data, :relationships
@@ -52,14 +52,14 @@ module JA2R
       super
     end
 
-    def convert_relationship(hash)
-      Hash[hash.map do |key, data|
-        if data['data'].is_a? Array
-          [key, data['data'].map { |d| KlassRegistry.instantiate(d) }]
-        else
-          [key, KlassRegistry.instantiate(data['data'])]
-        end
-      end].with_indifferent_access
+    def convert_relationships(hash)
+      hash.each_with_object(ActiveSupport::HashWithIndifferentAccess.new) do |(key, data), memo|
+        memo[key] = if data&.[]('data').is_a?(Array)
+                      data['data'].map { |d| KlassRegistry.instantiate(d) }
+                    elsif data&.[]('data').is_a?(Hash)
+                      KlassRegistry.instantiate(data&.[]('data'))
+                    end
+      end
     end
   end
 end

@@ -3,6 +3,8 @@ module JA2R
     extend self
 
     def instantiate(hash)
+      return unless hash&.key? 'type'
+
       lookup(hash['type']).new(hash)
     end
 
