@@ -7,7 +7,12 @@ RSpec.describe JA2R::Parser do
     context 'when parsing non-json-api' do
       let(:hash) { {'foo' => {}} }
 
-      it { is_expected.to eq nil }
+      it 'raises JA2R::InvalidData error' do
+        expect { parser.call }.to raise_error(JA2R::InvalidData) do |error|
+          expect(error.message).to eq 'Hash does not appear to be valid json-api'
+          expect(error.data).to eq hash
+        end
+      end
     end
 
     context 'when parsing relationships with data nil' do
@@ -47,6 +52,26 @@ RSpec.describe JA2R::Parser do
       it 'returns a JA2R object with niled relationship' do
         expect(subject).to be_a JA2R::Element
         expect(subject.empty_relationship).to be_nil
+      end
+    end
+
+    context 'when parsing data without type' do
+      let(:hash) do
+        {
+          'data' => {
+            'id' => '123',
+            'attributes' => {
+              'one' => 1
+            }
+          }
+        }
+      end
+
+      it 'raises JA2R::InvalidData error' do
+        expect { parser.call }.to raise_error(JA2R::InvalidData) do |error|
+          expect(error.message).to eq 'Hash does not appear to be valid json-api'
+          expect(error.data).to eq hash
+        end
       end
     end
 

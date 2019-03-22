@@ -7,6 +7,8 @@ module JA2R
 
     def call
       data = parse_data
+      raise InvalidData.new('Hash does not appear to be valid json-api', @hash) unless data
+
       parse_included
       object_space.each do |object|
         assign_relationships object, object_map
