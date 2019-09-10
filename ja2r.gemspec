@@ -3,7 +3,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = 'ja2r'
-  s.version     = ENV.fetch 'VERSION', '0.4.3'
+  s.version     = ENV.fetch 'VERSION', '0.5.0'
   s.authors     = ['mkon']
   s.email       = ['konstantin@munteanu.de']
   s.homepage    = 'https://github.com/mkon/ja2r'
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'activesupport', '>= 4.2', '< 6'
 
   s.add_development_dependency 'rspec', '~> 3.7'
-  s.add_development_dependency 'rubocop', '0.63.1'
-  s.add_development_dependency 'rubocop-rspec', '1.32.0'
+  s.add_development_dependency 'rubocop', '0.73.0'
+  s.add_development_dependency 'rubocop-rspec', '1.33.0'
   s.add_development_dependency 'simplecov', '~> 0.16'
 end
