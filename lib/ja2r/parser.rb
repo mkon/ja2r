@@ -1,7 +1,8 @@
 module JA2R
   class Parser
-    def initialize(hash)
+    def initialize(hash, options = {})
       @hash = hash
+      @options = options
       @object_space = []
     end
 
@@ -29,20 +30,20 @@ module JA2R
     end
 
     def parse_single
-      root = KlassRegistry.instantiate(hash['data'])
+      root = KlassRegistry.instantiate(hash['data'], @options)
       object_space << root
       root
     end
 
     def parse_list
-      root = hash['data'].map { |data| KlassRegistry.instantiate(data) }
+      root = hash['data'].map { |data| KlassRegistry.instantiate(data, @options) }
       object_space.push(*root)
       root
     end
 
     def parse_included
       hash['included']&.map do |data|
-        object_space.push KlassRegistry.instantiate(data)
+        object_space.push KlassRegistry.instantiate(data, @options)
       end
     end
 

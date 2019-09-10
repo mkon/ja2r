@@ -1,7 +1,8 @@
 module JA2R
   class Element
-    def initialize(origin_data)
+    def initialize(origin_data, options = {})
       @origin_data = origin_data.with_indifferent_access
+      @options = options
       @relationships = origin_data['relationships'] ? convert_relationships(origin_data['relationships']) : {}
     end
 
@@ -42,22 +43,26 @@ module JA2R
       return attributes[symbol] if attributes&.key? symbol
       return relationships[symbol] if relationships&.key? symbol
 
-      super
+      safe_traverse? ? nil : super
     end
 
     def respond_to_missing?(symbol, include_all = false)
       return true if attributes&.key?(symbol)
       return true if relationships&.key?(symbol)
 
-      super
+      safe_traverse? ? true : super
+    end
+
+    def safe_traverse?
+      @options[:safe_traverse]
     end
 
     def convert_relationships(hash)
       hash.each_with_object(ActiveSupport::HashWithIndifferentAccess.new) do |(key, data), memo|
         memo[key] = if data&.[]('data').is_a?(Array)
-                      data['data'].map { |d| KlassRegistry.instantiate(d) }
+                      data['data'].map { |d| KlassRegistry.instantiate(d, @options) }
                     elsif data&.[]('data').is_a?(Hash)
-                      KlassRegistry.instantiate(data&.[]('data'))
+                      KlassRegistry.instantiate(data&.[]('data'), @options)
                     end
       end
     end

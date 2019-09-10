@@ -41,3 +41,18 @@ JSON
 bart = JA2R.parse(JSON.parse(json))
 bart.sister.name # Lisa
 ```
+
+## Options
+
+You can pass options to `JA2R#parse` as second argument. Currently the only supported options are:
+
+| Name          | Type    | Description                                                                                                            |
+|---------------|---------|------------------------------------------------------------------------------------------------------------------------|
+| safe_traverse | boolean | When setting this option to true, unknown relationships or attributes will return nil instead of raising NoMethodError |
+
+Example:
+
+```ruby
+bart = JA2R.parse(hash, safe_traverse: true)
+bart.uncle&.name # nil
+```

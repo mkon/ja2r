@@ -29,6 +29,13 @@ RSpec.describe JA2R do
     expect(list.first.pets.size).to eq 2
   end
 
+  context 'when using safe_traverse' do
+    it 'returns nil on unknown fields' do
+      ele = described_class.parse payload, safe_traverse: true
+      expect(ele.uncle).to eq nil
+    end
+  end
+
   describe 'using custom class registry' do
     around do |example|
       JA2R::KlassRegistry.register 'persons', person_klass

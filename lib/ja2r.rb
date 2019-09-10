@@ -9,8 +9,8 @@ module JA2R
 
   module_function
 
-  def parse(hash)
-    Parser.new(hash).call
+  def parse(hash, options = {})
+    Parser.new(hash, options).call
   end
 
   def klass_for(hash)

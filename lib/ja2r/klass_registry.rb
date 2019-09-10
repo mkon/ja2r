@@ -2,10 +2,10 @@ module JA2R
   module KlassRegistry
     extend self
 
-    def instantiate(hash)
+    def instantiate(hash, options)
       return unless hash&.key? 'type'
 
-      lookup(hash['type']).new(hash)
+      lookup(hash['type']).new(hash, options)
     end
 
     def lookup(type)
