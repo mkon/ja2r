@@ -2,6 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/ja2r.svg)](https://badge.fury.io/rb/ja2r)
 [![Build Status](https://travis-ci.org/mkon/ja2r.svg?branch=master)](https://travis-ci.org/mkon/ja2r)
+![](https://github.com/mkon/ja2r/workflows/Test/badge.svg?branch=master)
 
 JASON-API to Ruby Object
 

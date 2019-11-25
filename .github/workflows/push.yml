@@ -3,6 +3,8 @@ name: Push
 on:
   release:
     types: [published, created, edited, prereleased]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -15,9 +17,12 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+    - name: Set Version
+      run: |
+        export VERSION=${echo "${{ github.ref }}" | cut -d / -f 3 | cut -d v -f 2}
+        echo $VERSION
     - name: Publish to RubyGems
       env:
-        VERSION: ${{ github.ref }}
         GEM_HOST_API_KEY: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
       run: |
         mkdir -p $HOME/.gem
