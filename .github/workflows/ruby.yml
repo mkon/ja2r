@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        rails: [4.2, 5.0, 5.1, 5.2, 6.0]
+        rails: ['4.2', '5.0', '5.1', '5.2', '6.0']
 
     steps:
     - uses: actions/checkout@v1
