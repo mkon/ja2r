@@ -19,7 +19,7 @@ jobs:
         ruby-version: 2.6.x
     - name: Set Version
       run: |
-        export VERSION=${echo "${{ github.ref }}" | cut -d / -f 3 | cut -d v -f 2}
+        export VERSION=${GITHUB_REF#refs/tags/v}
         echo $VERSION
     - name: Publish to RubyGems
       env:
