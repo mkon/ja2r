@@ -3,8 +3,6 @@ name: Push
 on:
   release:
     types: [published, created, edited, prereleased]
-  pull_request:
-    types: [opened, synchronize, reopened]
 
 jobs:
   build:
