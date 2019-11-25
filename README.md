@@ -1,8 +1,8 @@
 # JA2R
 
 [![Gem Version](https://badge.fury.io/rb/ja2r.svg)](https://badge.fury.io/rb/ja2r)
-[![Build Status](https://travis-ci.org/mkon/ja2r.svg?branch=master)](https://travis-ci.org/mkon/ja2r)
 ![](https://github.com/mkon/ja2r/workflows/Test/badge.svg?branch=master)
+[![Depfu](https://badges.depfu.com/badges/c63f1c5b6394bba4eb73d3b1063cc0be/overview.svg)](https://depfu.com/github/mkon/ja2r?project_id=5963)
 
 JASON-API to Ruby Object
 
