@@ -59,9 +59,10 @@ module JA2R
 
     def convert_relationships(hash)
       hash.each_with_object(ActiveSupport::HashWithIndifferentAccess.new) do |(key, data), memo|
-        memo[key] = if data&.[]('data').is_a?(Array)
+        memo[key] = case data&.[]('data')
+                    when Array
                       data['data'].map { |d| KlassRegistry.instantiate(d, @options) }
-                    elsif data&.[]('data').is_a?(Hash)
+                    when Hash
                       KlassRegistry.instantiate(data&.[]('data'), @options)
                     end
       end

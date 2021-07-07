@@ -22,9 +22,10 @@ module JA2R
     attr_reader :hash, :object_space
 
     def parse_data
-      if hash&.[]('data').is_a?(Array)
+      case hash&.[]('data')
+      when Array
         parse_list
-      elsif hash&.[]('data').is_a?(Hash)
+      when Hash
         parse_single
       end
     end
