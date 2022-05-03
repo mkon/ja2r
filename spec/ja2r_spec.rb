@@ -32,7 +32,7 @@ RSpec.describe JA2R do
   context 'when using safe_traverse' do
     it 'returns nil on unknown fields' do
       ele = described_class.parse payload, safe_traverse: true
-      expect(ele.uncle).to eq nil
+      expect(ele.uncle).to be_nil
     end
   end
 
