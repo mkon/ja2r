@@ -16,7 +16,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'activesupport', '>= 6.1', '< 7.1'
 
   s.add_development_dependency 'rspec', '~> 3.7'
-  s.add_development_dependency 'rubocop', '1.20.0'
+  s.add_development_dependency 'rubocop', '1.28.2'
   s.add_development_dependency 'rubocop-rspec', '2.8.0'
   s.add_development_dependency 'simplecov', '~> 0.16'
+
+  s.metadata['rubygems_mfa_required'] = 'true'
 end
