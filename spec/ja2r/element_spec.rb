@@ -39,7 +39,7 @@ RSpec.describe JA2R::Element do
 
     describe 'fetching non-existing attributes' do
       it 'does not raise method not found error, but returns nil' do
-        expect(element.unknown).to eq nil
+        expect(element.unknown).to be_nil
       end
     end
   end
