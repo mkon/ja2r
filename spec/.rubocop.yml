@@ -12,6 +12,10 @@ RSpec/MultipleExpectations:
   Enabled: false
 RSpec/NamedSubject:
   Enabled: false
+RSpec/SpecFilePathFormat:
+  Exclude:
+    - ja2r_spec.rb
+    - ja2r/**
 
 Style/BlockDelimiters:
   Enabled: false
