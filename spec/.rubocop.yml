@@ -6,8 +6,6 @@ Metrics/BlockLength:
 
 RSpec/ExampleLength:
   Enabled: false
-RSpec/FilePath:
-  Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
 RSpec/NamedSubject:
