@@ -1,3 +1,4 @@
 #!/bin/bash -le
+source ~/.rvm/scripts/rvm
 
 VERSION=`bin/version` gem build ja2r.gemspec

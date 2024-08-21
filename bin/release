@@ -1,4 +1,5 @@
 #!/bin/bash -le
+source ~/.rvm/scripts/rvm
 
 name="ja2r"
 
