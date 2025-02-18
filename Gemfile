@@ -25,4 +25,3 @@ gem 'bigdecimal'
 if (version = ENV['ACTIVESUPPORT'])
   gem 'activesupport', "~> #{version}.0"
 end
-
