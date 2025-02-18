@@ -18,10 +18,11 @@ group :development, :test do
   gem 'simplecov', '~> 0.16'
 end
 
+# Required for combination of old activesupport (< 7.1) and new ruby (> 3.3)
+gem 'base64'
+gem 'bigdecimal'
+
 if (version = ENV['ACTIVESUPPORT'])
   gem 'activesupport', "~> #{version}.0"
-
-  # Required for combination of old activesupport (< 7.1) and new ruby (> 3.3)
-  gem 'base64'
-  gem 'bigdecimal'
 end
+
