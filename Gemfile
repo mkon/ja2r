@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Silence warning in ruby 3.4 (will no longer be part of the default gems starting from Ruby 3.5)
+gem 'logger'
+
 # Declare your gem's dependencies in keys-oauth.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
@@ -17,6 +20,10 @@ group :development, :test do
   gem 'rubocop-rspec', '3.0.3'
   gem 'simplecov', '~> 0.16'
 end
+
+# Required for combination of old activesupport (< 7.1) and new ruby (> 3.3)
+gem 'base64'
+gem 'bigdecimal'
 
 if (version = ENV['ACTIVESUPPORT'])
   gem 'activesupport', "~> #{version}.0"
