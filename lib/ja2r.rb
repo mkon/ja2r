@@ -1,5 +1,3 @@
-require 'logger' # Required for combination of old activesupport (< 7.1) and new ruby (> 3.3)
-
 require 'active_support'
 require 'active_support/core_ext/array'
 require 'active_support/core_ext/hash'
