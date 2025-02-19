@@ -21,6 +21,7 @@ end
 # Required for combination of old activesupport (< 7.1) and new ruby (> 3.3)
 gem 'base64'
 gem 'bigdecimal'
+gem 'logger'
 
 if (version = ENV['ACTIVESUPPORT'])
   gem 'activesupport', "~> #{version}.0"
