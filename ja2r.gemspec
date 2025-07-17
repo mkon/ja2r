@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'README.md']
 
-  s.add_dependency 'activesupport', '>= 6.1', '< 8.0'
+  s.add_dependency 'activesupport', '>= 6.1', '<= 8.0.2'
 
   s.metadata['rubygems_mfa_required'] = 'true'
 end
