@@ -50,7 +50,7 @@ module JA2R
       return true if attributes&.key?(symbol)
       return true if relationships&.key?(symbol)
 
-      safe_traverse? ? true : super
+      safe_traverse? || super
     end
 
     def safe_traverse?
