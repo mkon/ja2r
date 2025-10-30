@@ -47,8 +47,8 @@ module JA2R
         @references[key.underscore] ||= {attribute: key}
       end
       relationships&.each_key do |key|
-         @references[key] ||= {relationship: key}
-         @references[key.underscore] ||= {relationship: key}
+        @references[key] ||= {relationship: key}
+        @references[key.underscore] ||= {relationship: key}
       end
     end
 
@@ -64,12 +64,7 @@ module JA2R
     end
 
     def respond_to_missing?(symbol, include_all = false)
-      if @references.key? symbol
-        true
-      else
-        safe_traverse? || super
-        safe_traverse? ? true : super
-      end
+      @references.key?(symbol) || safe_traverse? || super
     end
 
     def safe_traverse?
