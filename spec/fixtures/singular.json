@@ -12,6 +12,12 @@
         "example": true
       },
       "relationships":{
+         "best-friend":{
+            "data":{
+              "id":"1005",
+              "type":"persons"
+            }
+         },
          "sister":{
             "data":{
               "id":"1002",
@@ -32,6 +38,13 @@
          "type":"persons",
          "attributes":{
             "name":"Lisa"
+         }
+      },
+      {
+         "id":"1005",
+         "type":"persons",
+         "attributes":{
+            "name":"Milhouse"
          }
       },
       {

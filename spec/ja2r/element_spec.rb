@@ -43,4 +43,30 @@ RSpec.describe JA2R::Element do
       end
     end
   end
+
+  context 'with dashes in the keys' do
+    let(:origin_data) do
+      {
+        'id' => 'some-id',
+        'attributes' => {
+          'foo-field' => 'foo-value',
+          'bar-field' => {
+            'bar-value' => true
+          }
+        },
+        'relationships' => {
+          'some-one' => {
+            'data' => {'id' => '1122', 'type' => 'some-ones'}
+          }
+        }
+      }
+    end
+
+    it 'allows navigation with underscore' do
+      expect(element.foo_field).to eq 'foo-value'
+      expect(element.bar_field).to eq('bar-value' => true)
+      expect(element.some_one).to be_a(described_class)
+      expect(element.some_one.type).to eq('some-ones')
+    end
+  end
 end

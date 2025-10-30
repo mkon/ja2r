@@ -3,7 +3,8 @@ module JA2R
     def initialize(origin_data, options = {})
       @origin_data = origin_data.with_indifferent_access
       @options = options
-      @relationships = origin_data['relationships'] ? convert_relationships(origin_data['relationships']) : {}
+      @relationships = origin_data['relationships']&.then { |rd| convert_relationships(rd) } || {}
+      build_references
     end
 
     attr_reader :origin_data, :relationships
@@ -39,18 +40,36 @@ module JA2R
 
     private
 
-    def method_missing(symbol, *args)
-      return attributes[symbol] if attributes&.key? symbol
-      return relationships[symbol] if relationships&.key? symbol
+    def build_references
+      @references = {}.with_indifferent_access
+      attributes&.each_key do |key|
+        @references[key] ||= {attribute: key}
+        @references[key.underscore] ||= {attribute: key}
+      end
+      relationships&.each_key do |key|
+         @references[key] ||= {relationship: key}
+         @references[key.underscore] ||= {relationship: key}
+      end
+    end
 
-      safe_traverse? ? nil : super
+    def method_missing(symbol, *args)
+      case @references[symbol]
+      in attribute:
+        attributes[attribute]
+      in relationship:
+        relationships[relationship]
+      else
+        safe_traverse? ? nil : super
+      end
     end
 
     def respond_to_missing?(symbol, include_all = false)
-      return true if attributes&.key?(symbol)
-      return true if relationships&.key?(symbol)
-
-      safe_traverse? || super
+      if @references.key? symbol
+        true
+      else
+        safe_traverse? || super
+        safe_traverse? ? true : super
+      end
     end
 
     def safe_traverse?
