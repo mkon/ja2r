@@ -15,7 +15,7 @@ jobs:
       env:
         ACTIVESUPPORT: '7.2'
       with:
-        ruby-version: '3.2'
+        ruby-version: '3.4'
         bundler-cache: true
         cache-version: '7.1'
     - name: Rubocop
@@ -26,7 +26,7 @@ jobs:
       fail-fast: false
       matrix:
         activesupport: ['6.1', '7.0', '7.1', '7.2', '8.0']
-        ruby: ['3.2', '3.3', '3.4']
+        ruby: ['3.3', '3.4']
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
