@@ -5,6 +5,7 @@ RSpec.describe JA2R do
   it 'can handle singular relations' do
     ele = described_class.parse payload
     expect(ele.id).to eq '1001'
+    expect(ele.best_friend.name).to eq 'Milhouse'
     expect(ele.sister.id).to eq '1002'
     expect(ele.sister.name).to eq 'Lisa'
     expect(ele.father.id).to eq '998'
