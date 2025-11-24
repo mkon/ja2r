@@ -13,11 +13,11 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       env:
-        ACTIVESUPPORT: '7.2'
+        ACTIVESUPPORT: '8.1'
       with:
         ruby-version: '3.4'
         bundler-cache: true
-        cache-version: '7.1'
+        cache-version: '8.1'
     - name: Rubocop
       run: bundle exec rubocop
   rspec:
@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        activesupport: ['6.1', '7.0', '7.1', '7.2', '8.0']
+        activesupport: ['7.1', '7.2', '8.0', '8.1']
         ruby: ['3.3', '3.4']
     steps:
     - uses: actions/checkout@v2
