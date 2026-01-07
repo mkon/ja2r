@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-# Silence warning in ruby 3.4 (will no longer be part of the default gems starting from Ruby 3.5)
 gem 'logger'
 
 # Declare your gem's dependencies in keys-oauth.gemspec.
