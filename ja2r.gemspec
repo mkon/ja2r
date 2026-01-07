@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/mkon/ja2r'
   s.summary     = 'Simple JSON-API to ruby object conversion'
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 3.2', '< 3.5'
+  s.required_ruby_version = '>= 3.2', '< 4.1'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'README.md']
 
