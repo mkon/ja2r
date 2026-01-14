@@ -16,7 +16,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec', '~> 3.13'
   gem 'rubocop', '1.81.6'
-  gem 'rubocop-rspec', '3.7.0'
+  gem 'rubocop-rspec', '3.9.0'
   gem 'simplecov', '~> 0.16'
 end
 
