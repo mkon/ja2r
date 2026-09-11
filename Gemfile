@@ -17,7 +17,7 @@ group :development, :test do
   gem 'rspec', '~> 3.13'
   gem 'rubocop', '1.81.6'
   gem 'rubocop-rspec', '3.7.0'
-  gem 'simplecov', '~> 0.16'
+  gem 'simplecov', '~> 1.2'
 end
 
 # Required for combination of old activesupport (< 7.1) and new ruby (> 3.3)
